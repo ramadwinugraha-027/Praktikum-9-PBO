@@ -53,7 +53,13 @@ public class BankAccount {
         );
     }
 
+    if (target == this) {
+        throw new IllegalArgumentException(
+            "Tidak bisa transfer ke rekening sendiri"
+        );
+    }
+
     withdraw(amount);
     target.deposit(amount);
-    }  
+    }
 }

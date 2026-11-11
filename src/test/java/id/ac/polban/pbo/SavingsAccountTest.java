@@ -23,4 +23,19 @@ public class SavingsAccountTest {
             0.001
         );
     }
+
+    @Test
+    void constructor_bungaNegatif_ditolak() {
+        IllegalArgumentException ex = assertThrows(
+            IllegalArgumentException.class,
+            () -> new SavingsAccount(
+                "003", "Citra", 100_000, -0.05
+            )
+        );
+
+        assertEquals(
+            "Bunga tidak boleh negatif",
+            ex.getMessage()
+        );
+    }
 }
